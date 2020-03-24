@@ -12,13 +12,20 @@ import ProtectedRouter from './ProtectedRouter';
 const RootRouter = ({ isAuth }) => (
     <Router>
         <Switch>
-            <Route exact path="/" component={Main} />
+            <Route
+                exact
+                path="/"
+                render={() => <Main isAuth={isAuth} />}
+            />
             <ProtectedRouter
                 path="/calculator"
                 component={Calculator}
                 isAuth={isAuth}
             />
-            <Route path="*" component={Main} />
+            <Route
+                path="*"
+                component={Main}
+            />
         </Switch>
     </Router>
 );
