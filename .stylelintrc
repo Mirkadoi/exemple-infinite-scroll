@@ -8,7 +8,9 @@
         "indentation": 4,
         "number-leading-zero": "always",
         "at-rule-empty-line-before": [
-            "always", { "ignoreAtRules": ["import"] }]
+            "always", { "ignoreAtRules": ["import"] }],
+        "rule-empty-line-before": [
+            "always", { "ignore": ["first-nested"] }]
     },
     "ignoreFiles": [
         "./build/css/*.css"

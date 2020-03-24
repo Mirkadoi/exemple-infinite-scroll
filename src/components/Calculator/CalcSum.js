@@ -1,9 +1,9 @@
 import React from 'react';
 
-const SumCalc = () => (
+const CalcSum = () => (
     <div>
         Посчитаем сумму
     </div>
 );
 
-export default SumCalc;
+export default CalcSum;

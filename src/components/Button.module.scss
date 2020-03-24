@@ -1,0 +1,57 @@
+@import "scss/variables";
+
+.button_reset {
+    display: inline-block;
+    overflow: visible;
+    width: auto;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: none;
+    border-radius: 0;
+    background: transparent;
+    line-height: normal;
+    color: inherit;
+    text-align: center;
+    vertical-align: top;
+    text-decoration: none;
+    white-space: nowrap;
+    cursor: pointer;
+    user-select: none;
+}
+
+.button {
+    text-align: center;
+    font-size: 14px;
+    line-height: 20px;
+    padding: 15px 10px;
+    color: $color-white;
+    background-color: rgba($color-blue, 0.9);
+    border-radius: 8px;
+    transition: background-color 0.3s ease-in-out, border-color 0.3s ease-in-out, color 0.3s ease-in-out;
+
+    @media (min-width: $viewport--md) {
+        font-size: 18px;
+        line-height: 24px;
+        padding: 20px 25px;
+    }
+
+    @media (pointer: fine) {
+        &:hover {
+            background-color: $color-blue;
+        }
+    }
+
+    &:disabled {
+        color: $color-white;
+        cursor: not-allowed;
+    }
+
+    &--link {
+        font-family: $font-family--sansSerif;
+    }
+
+    &--primary {
+        background-color: $color-blue;
+    }
+}
