@@ -1,9 +1,9 @@
 import React from 'react';
-import SumCalc from '../../components/SumCalc';
+import CalcSum from '../../components/Calculator/CalcSum';
 
 const Calculator = () => (
     <>
-        <SumCalc />
+        <CalcSum />
     </>
 );
 
