@@ -1,0 +1,41 @@
+
+// Base colors
+//---------------------------------
+
+$color-white:                   #fff !default;
+$color-black:                   #000 !default;
+$color-red:                     #e84552 !default;
+$color-purple:                  #9c27b0 !default;
+$color-blue:                    #51abff !default;
+$color-green:                   #008000 !default;
+$color-yellow:                  #ff0 !default;
+$color-orange:                  #ff9800 !default;
+$color-brown:                   #795548 !default;
+
+// Viewports
+//---------------------------------
+
+$viewport--xs:                  320px !default; // mobile;
+$viewport--sm:                  360px !default; // mobile;
+$viewport--md:                  768px !default; // tablet;
+$viewport--lg:                  1080px !default; // tablet;
+$viewport--xl:                  1366px !default; // desktop;
+$viewport--2xl:                 1600px !default; // desktop;
+
+$viewport--xs-max:              $viewport--sm - 0.02px !default;
+$viewport--sm-max:              $viewport--md - 0.02px !default;
+$viewport--md-max:              $viewport--lg - 0.02px !default;
+$viewport--lg-max:              $viewport--xl - 0.02px !default;
+$viewport--xl-max:              $viewport--2xl - 0.02px !default;
+
+// Typography
+//---------------------------------
+
+$font-family--sansSerif:        Arial, sans-serif !default;
+$font-family--serif:            Georgia, "Times New Roman", Times, serif !default;
+$font-family--monospace:        Monaco, Menlo, Consolas, "Courier New", monospace !default;
+
+// Background
+//---------------------------------
+
+$bg-main:                       $color-white !default;
