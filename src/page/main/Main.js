@@ -34,7 +34,14 @@ const renderPreview = (isAuth, switchStepAuth) => (
     </>
 );
 
-const renderAuth = () => <FormAuth />;
+const renderAuth = () => (
+    <>
+        <h1 className={styles.title}>
+            Аутентификация
+        </h1>
+        <FormAuth />
+    </>
+);
 
 const Main = ({ isAuth }) => {
     const [renderStepAuth, switchStepAuth] = useState(true);
