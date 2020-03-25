@@ -13,6 +13,7 @@ const TextField = (props) => {
         mode,
         disabled,
         onChange,
+        onBlur,
         value,
         ...attrs
     } = props;
@@ -29,6 +30,7 @@ const TextField = (props) => {
                 disabled={disabled}
                 onChange={onChange}
                 value={value}
+                onBlur={onBlur}
                 {...attrs}
             />
         </label>
@@ -42,6 +44,8 @@ TextField.defaultProps = {
     disabled: false,
     mode: '',
     onChange: () => {
+    },
+    onBlur: () => {
     },
     value: '',
 };
@@ -57,6 +61,7 @@ TextField.propTypes = {
     ]).isRequired,
     disabled: PropTypes.bool,
     onChange: PropTypes.func,
+    onBlur: PropTypes.func,
     value: PropTypes.oneOfType([
         PropTypes.string,
         PropTypes.number,

@@ -5,11 +5,22 @@ import styles from './FormAuth.module.scss';
 
 const FormAuth = () => {
     const [formValue, setFormValue] = useState({
-        nameValue: '',
-        passwordValue: '',
+        name: '',
+        password: '',
     });
     // const [formError, setFormError] = useState('');
-    const { nameValue, passwordValue } = formValue;
+    const [inValidForm, setInValidForm] = useState(true);
+
+    const { name, password } = formValue;
+
+    const changeTextField = ({ target: { value, id } }) => (
+        setFormValue({ ...formValue, [id]: value })
+    );
+
+    const validateTextField = (e) => {
+        console.log(e.target.value);
+        setInValidForm(false);
+    };
 
     const handleClick = (e) => {
         e.preventDefault();
@@ -21,23 +32,22 @@ const FormAuth = () => {
             <TextField
                 id="name"
                 placeholder="Логин"
-                value={nameValue}
-                onChange={({ target: { value } }) => (
-                    setFormValue({ ...formValue, nameValue: value })
-                )}
+                value={name}
+                onChange={changeTextField}
+                onBlur={validateTextField}
+
             />
             <TextField
                 type="password"
                 id="password"
                 placeholder="Пароль"
-                value={passwordValue}
-                onChange={({ target: { value } }) => (
-                    setFormValue({ ...formValue, passwordValue: value })
-                )}
+                value={password}
+                onChange={changeTextField}
+                onBlur={validateTextField}
             />
             <Button
                 type='submit'
-                disabled
+                disabled={inValidForm}
                 onClick={handleClick}
             >
                 Войти
