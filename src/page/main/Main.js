@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import Button from '../../components/Button';
-import styles from './Main.module.scss';
 import FormAuth from '../../components/Authorization/FormAuth';
+import styles from './Main.module.scss';
 
 const renderPreview = (isAuth, switchStepAuth) => (
     <>

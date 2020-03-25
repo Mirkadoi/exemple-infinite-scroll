@@ -5,21 +5,51 @@ import styles from './FormAuth.module.scss';
 
 const FormAuth = () => {
     const [formValue, setFormValue] = useState({
-        name: '',
+        mail: '',
         password: '',
     });
-    // const [formError, setFormError] = useState('');
+    const [formError, setFormError] = useState({
+        mailError: '',
+        passwordError: '',
+    });
     const [inValidForm, setInValidForm] = useState(true);
 
-    const { name, password } = formValue;
+    const { mail, password } = formValue;
+    const { mailError, passwordError } = formError;
 
-    const changeTextField = ({ target: { value, id } }) => (
-        setFormValue({ ...formValue, [id]: value })
-    );
+    const changeTextField = ({ target: { value, id } }) => {
+        setFormValue({ ...formValue, [id]: value });
+        setFormError({ ...formError, [`${id}Error`]: '' });
+    };
 
-    const validateTextField = (e) => {
-        console.log(e.target.value);
-        setInValidForm(false);
+    const validateAllTextField = () => {
+        const allFieldValid = !mailError && !passwordError && mail && password;
+        if (allFieldValid) {
+            setInValidForm(false);
+        }
+    };
+
+    const validateTextField = ({ target: { value, id } }) => {
+        if (id === 'mail') {
+            const regExp = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+            const email = String(value).toLowerCase();
+            if (!regExp.test(email)) {
+                setFormError({ ...formError, mailError: 'Не корректный имеил' });
+                setInValidForm(true);
+                return;
+            }
+            setFormError({ ...formError, mailError: '' });
+            validateAllTextField();
+            return;
+        }
+        const regExp = /(?=^.{6,}$)/;
+        if (!regExp.test(value)) {
+            setFormError({ ...formError, passwordError: 'Пароль от 6 символов' });
+            setInValidForm(true);
+            return;
+        }
+        setFormError({ ...formError, passwordError: '' });
+        validateAllTextField();
     };
 
     const handleClick = (e) => {
@@ -29,22 +59,29 @@ const FormAuth = () => {
 
     return (
         <form className={styles.form}>
-            <TextField
-                id="name"
-                placeholder="Логин"
-                value={name}
-                onChange={changeTextField}
-                onBlur={validateTextField}
-
-            />
-            <TextField
-                type="password"
-                id="password"
-                placeholder="Пароль"
-                value={password}
-                onChange={changeTextField}
-                onBlur={validateTextField}
-            />
+            <div className={styles.input}>
+                {mailError && <span className={styles.error}><b>{mailError}</b></span>}
+                <TextField
+                    id="mail"
+                    placeholder="Логин (email)"
+                    value={mail}
+                    onChange={changeTextField}
+                    onBlur={validateTextField}
+                    required
+                />
+            </div>
+            <div className={styles.input}>
+                {passwordError && <span className={styles.error}><b>{passwordError}</b></span>}
+                <TextField
+                    type="password"
+                    id="password"
+                    placeholder="Пароль"
+                    value={password}
+                    onChange={changeTextField}
+                    onBlur={validateTextField}
+                    required
+                />
+            </div>
             <Button
                 type='submit'
                 disabled={inValidForm}

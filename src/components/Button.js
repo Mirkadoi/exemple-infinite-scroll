@@ -23,7 +23,6 @@ const Button = (props) => {
         return (
             <Link
                 to={to}
-                type="button"
                 className={cn(
                     styles.button_reset,
                     styles.button,
@@ -42,7 +41,7 @@ const Button = (props) => {
 
     return (
         <button
-            type="button"
+            type={type}
             className={cn(
                 styles.button_reset,
                 styles.button,
@@ -62,7 +61,7 @@ Button.defaultProps = {
     children: <></>,
     disabled: false,
     mode: '',
-    type: '',
+    type: 'button',
     to: '/',
     className: '',
     onClick: () => {},
