@@ -1,0 +1,35 @@
+@import "scss/variables";
+
+.text_field {
+    position: relative;
+    font-size: 16px;
+    line-height: 22px;
+}
+
+.control {
+    width: 100%;
+    min-width: 180px;
+    max-width: 360px;
+    margin: 0;
+    padding: 24px 21px;
+    appearance: none;
+    background-color: $color-white;
+    border: 1px solid rgba($color-grey, 0.3);
+    border-radius: 6px;
+    line-height: 1;
+    transition: border-color 0.3s ease-in-out;
+
+    &::placeholder {
+        color: rgba($color-grey, 0.6);
+    }
+
+    &:focus {
+        border: 1px solid $color-blue;
+        outline: none;
+    }
+
+    &:disabled {
+        background-color: $color-grey;
+        cursor: not-allowed;
+    }
+}

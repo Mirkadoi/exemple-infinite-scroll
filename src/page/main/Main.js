@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import Button from '../../components/Button';
 import styles from './Main.module.scss';
+import FormAuth from '../../components/Authorization/FormAuth';
 
 const renderPreview = (isAuth, switchStepAuth) => (
     <>
@@ -33,11 +34,7 @@ const renderPreview = (isAuth, switchStepAuth) => (
     </>
 );
 
-const renderAuth = () => (
-    <>
-        Авторизация
-    </>
-);
+const renderAuth = () => <FormAuth />;
 
 const Main = ({ isAuth }) => {
     const [renderStepAuth, switchStepAuth] = useState(true);
