@@ -3,7 +3,8 @@ import RootRouter from '../router/RootRouter';
 
 
 function App() {
-    const [isAuth, switchIsAuth] = useState(false);
+    const tokenIsTrue = !!localStorage.getItem('token');
+    const [isAuth, switchIsAuth] = useState(tokenIsTrue);
     return (
         <RootRouter
             isAuth={isAuth}

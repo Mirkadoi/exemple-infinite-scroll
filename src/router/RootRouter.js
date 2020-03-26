@@ -9,13 +9,13 @@ import Main from '../page/main/Main';
 import Calculator from '../page/calculator/Calculator';
 import ProtectedRouter from './ProtectedRouter';
 
-const RootRouter = ({ isAuth }) => (
+const RootRouter = ({ isAuth, switchIsAuth }) => (
     <Router>
         <Switch>
             <Route
                 exact
                 path="/"
-                render={() => <Main isAuth={isAuth} />}
+                render={() => <Main isAuth={isAuth} switchIsAuth={switchIsAuth}/>}
             />
             <ProtectedRouter
                 path="/calculator"
@@ -32,6 +32,7 @@ const RootRouter = ({ isAuth }) => (
 
 RootRouter.propTypes = {
     isAuth: PropTypes.bool.isRequired,
+    switchIsAuth: PropTypes.func.isRequired,
 };
 
 export default RootRouter;

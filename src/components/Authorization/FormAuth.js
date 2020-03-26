@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
+import { withRouter } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import TextField from '../TextField';
 import Button from '../Button';
 import styles from './FormAuth.module.scss';
 
-const FormAuth = () => {
+const FormAuth = ({ switchIsAuth, history }) => {
     const [formValue, setFormValue] = useState({
         mail: '',
         password: '',
@@ -54,7 +56,11 @@ const FormAuth = () => {
 
     const handleClick = (e) => {
         e.preventDefault();
-        console.log(e);
+        switchIsAuth(true);
+
+        localStorage.setItem('token', 'x5QzMhLdnco1GNNy8ewgKYFPrpaxAsfB');
+
+        history.push('/calculator');
     };
 
     return (
@@ -93,4 +99,9 @@ const FormAuth = () => {
     );
 };
 
-export default FormAuth;
+FormAuth.propTypes = {
+    history: PropTypes.object.isRequired,
+    switchIsAuth: PropTypes.func.isRequired,
+};
+
+export default withRouter(FormAuth);
