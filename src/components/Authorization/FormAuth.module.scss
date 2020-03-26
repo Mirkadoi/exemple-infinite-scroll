@@ -1,0 +1,25 @@
+@import "scss/variables";
+
+.form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.input {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.error {
+    position: absolute;
+    bottom: -17px;
+    left: 0;
+    width: 100%;
+    font-size: 14px;
+    color: $color-red;
+
+    @media (min-width: $viewport--md) {
+        font-size: 16px;
+    }
+}

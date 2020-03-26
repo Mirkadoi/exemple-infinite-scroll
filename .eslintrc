@@ -11,6 +11,7 @@
     ],
     "rules": {
         "react/prop-types": 2,
+        "react/require-default-props": 2,
         "indent": [
             "error",
             4

@@ -9,22 +9,30 @@ import Main from '../page/main/Main';
 import Calculator from '../page/calculator/Calculator';
 import ProtectedRouter from './ProtectedRouter';
 
-const RootRouter = ({ isAuth }) => (
+const RootRouter = ({ isAuth, switchIsAuth }) => (
     <Router>
         <Switch>
-            <Route exact path="/" component={Main} />
+            <Route
+                exact
+                path="/"
+                render={() => <Main isAuth={isAuth} switchIsAuth={switchIsAuth}/>}
+            />
             <ProtectedRouter
                 path="/calculator"
                 component={Calculator}
                 isAuth={isAuth}
             />
-            <Route path="*" component={Main} />
+            <Route
+                path="*"
+                component={Main}
+            />
         </Switch>
     </Router>
 );
 
 RootRouter.propTypes = {
     isAuth: PropTypes.bool.isRequired,
+    switchIsAuth: PropTypes.func.isRequired,
 };
 
 export default RootRouter;
