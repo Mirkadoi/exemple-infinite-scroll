@@ -59,6 +59,7 @@ const FormAuth = ({ switchIsAuth, history }) => {
         switchIsAuth(true);
 
         localStorage.setItem('token', 'x5QzMhLdnco1GNNy8ewgKYFPrpaxAsfB');
+        localStorage.setItem('login', `${mail}`);
 
         history.push('/calculator');
     };
