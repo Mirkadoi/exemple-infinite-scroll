@@ -1,3 +1,14 @@
 .sum {
-    color: #e84552;
+    padding: 20px;
+    text-align: center;
+}
+
+.button {
+    margin-bottom: 20px;
+}
+
+.field {
+    & + & {
+        margin-top: 10px;
+    }
 }

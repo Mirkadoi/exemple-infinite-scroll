@@ -47,7 +47,7 @@ TextField.defaultProps = {
     },
     onBlur: () => {
     },
-    value: '',
+    value: null,
 };
 
 TextField.propTypes = {

@@ -30,4 +30,9 @@
         background-color: $color-grey;
         cursor: not-allowed;
     }
+
+    .text_field--small & {
+        padding: 18px 15px;
+        max-width: 400px;
+    }
 }
