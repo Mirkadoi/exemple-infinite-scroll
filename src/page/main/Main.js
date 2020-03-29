@@ -47,7 +47,7 @@ const Main = ({ isAuth, switchIsAuth }) => {
     );
 
     return (
-        <div className={styles.root}>
+        <div className={styles.main}>
             <div className={styles.wrapper}>
                 {
                     renderStepAuth ? renderPreview(isAuth) : renderAuth(switchIsAuth)
