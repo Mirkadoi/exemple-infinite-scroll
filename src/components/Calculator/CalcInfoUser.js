@@ -21,8 +21,10 @@ const CalcInfoUser = ({ stepCalc }) => {
 
     return (
         <div className={styles.info}>
-            <p>Привет, {prependLogin}!</p>
-            <p>Этап: "{stepCalc}"</p>
+            <div className={styles.wrapper}>
+                <p>Привет, <b>{prependLogin}</b>!</p>
+                <p>Этап: "{stepCalc}"</p>
+            </div>
         </div>
     );
 };
