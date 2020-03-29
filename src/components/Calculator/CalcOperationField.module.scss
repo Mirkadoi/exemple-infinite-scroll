@@ -1,3 +1,25 @@
+@import "scss/variables";
+
 .calc_field {
     flex: 0 1 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.operation_field {
+    flex: 0 1 85%;
+}
+
+.button_group {
+    border-top: 1px solid rgba($color-grey, 0.4);
+    flex: 0 1 15%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.button {
+    & + & {
+        margin-left: 15px;
+    }
 }

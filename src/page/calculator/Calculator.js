@@ -8,7 +8,10 @@ const Calculator = () => {
     return (
         <div className={styles.calculator}>
             <CalcInfoUser stepCalc={stepCalc} />
-            <CalcOperationField setStepCalc={setStepCalc} />
+            <CalcOperationField
+                stepCalc={stepCalc}
+                setStepCalc={setStepCalc}
+            />
         </div>
     );
 };
