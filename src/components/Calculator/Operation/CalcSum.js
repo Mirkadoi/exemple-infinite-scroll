@@ -1,20 +1,16 @@
-import React, { useState } from 'react';
+import React from 'react';
 // import {
 //     Column,
 //     Table,
 //     AutoSizer
 // } from 'react-virtualized';
+import PropTypes from 'prop-types';
 import Button from '../../Button';
 import TextField from '../../TextField';
 import styles from './CalcSum.module.scss';
 
 
-const CalcSum = () => {
-    const [terms, setTerms] = useState({
-        0: '',
-        1: '',
-    });
-
+const CalcSum = ({ terms, setTerms }) => {
     const renderSumTextField = () => {
         const handleChange = ({ target: { value, id, validity: { valid } } }) => {
             if (valid) setTerms({ ...terms, [id]: value });
@@ -57,6 +53,11 @@ const CalcSum = () => {
             {renderSumTextField()}
         </div>
     );
+};
+
+CalcSum.propTypes = {
+    terms: PropTypes.object.isRequired,
+    setTerms: PropTypes.func.isRequired,
 };
 
 export default CalcSum;
