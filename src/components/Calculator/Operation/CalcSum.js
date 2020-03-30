@@ -10,7 +10,7 @@ import TextField from '../../TextField';
 import styles from './CalcSum.module.scss';
 
 
-const CalcSum = ({ terms, setTerms }) => {
+const CalcSum = ({ terms, setTerms, stepCalc }) => {
     const renderSumTextField = () => {
         const handleChange = ({ target: { value, id, validity: { valid } } }) => {
             if (valid) setTerms({ ...terms, [id]: value });
@@ -50,7 +50,7 @@ const CalcSum = ({ terms, setTerms }) => {
 
     return (
         <div className={styles.sum}>
-            {renderSumTextField()}
+            {stepCalc === 1 && renderSumTextField()}
         </div>
     );
 };
@@ -58,6 +58,7 @@ const CalcSum = ({ terms, setTerms }) => {
 CalcSum.propTypes = {
     terms: PropTypes.object.isRequired,
     setTerms: PropTypes.func.isRequired,
+    stepCalc: PropTypes.number.isRequired,
 };
 
 export default CalcSum;
