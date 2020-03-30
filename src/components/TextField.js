@@ -15,6 +15,7 @@ const TextField = (props) => {
         onChange,
         onBlur,
         value,
+        inputMode,
         ...attrs
     } = props;
     const TextFieldClasses = cn(styles.text_field, styles[`text_field--${mode}`], className);
@@ -29,8 +30,9 @@ const TextField = (props) => {
                 className={styles.control}
                 disabled={disabled}
                 onChange={onChange}
-                value={value}
                 onBlur={onBlur}
+                inputMode={inputMode}
+                value={value}
                 {...attrs}
             />
         </label>
@@ -47,7 +49,7 @@ TextField.defaultProps = {
     },
     onBlur: () => {
     },
-    value: null,
+    inputMode: 'none',
 };
 
 TextField.propTypes = {
@@ -55,6 +57,7 @@ TextField.propTypes = {
     mode: PropTypes.string,
     type: PropTypes.string,
     className: PropTypes.string,
+    inputMode: PropTypes.string,
     id: PropTypes.oneOfType([
         PropTypes.string,
         PropTypes.number,
@@ -65,7 +68,7 @@ TextField.propTypes = {
     value: PropTypes.oneOfType([
         PropTypes.string,
         PropTypes.number,
-    ]),
+    ]).isRequired,
 };
 
 export default TextField;
