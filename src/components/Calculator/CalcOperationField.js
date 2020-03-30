@@ -16,9 +16,7 @@ const CalcOperationField = ({ stepCalc, setStepCalc }) => {
     const [blockNextStep, setBlockNextStep] = useState(true);
 
     const switchBlockNextStep = () => {
-        const valArr = Object.values(variable);
-        const clearArr = valArr.filter(Number);
-        if (clearArr.length >= 2) setBlockNextStep(false);
+        if (variable[0] !== '' && variable[1] !== '') setBlockNextStep(false);
     };
 
     useEffect(() => {
@@ -47,7 +45,7 @@ const CalcOperationField = ({ stepCalc, setStepCalc }) => {
 };
 
 CalcOperationField.propTypes = {
-    stepCalc: PropTypes.string.isRequired,
+    stepCalc: PropTypes.number.isRequired,
     setStepCalc: PropTypes.func.isRequired,
 };
 

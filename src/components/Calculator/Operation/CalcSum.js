@@ -16,6 +16,11 @@ const CalcSum = ({ terms, setTerms, stepCalc }) => {
             if (valid) setTerms({ ...terms, [id]: value });
         };
 
+        const setPlaceholder = (id) => {
+            if (id !== '0' && id !== '1') return 'Слагаемое';
+            return 'Слагаемое (обязательное)';
+        };
+
         return (
             <>
                 <Button
@@ -35,7 +40,7 @@ const CalcSum = ({ terms, setTerms, stepCalc }) => {
                             pattern="[0-9]*"
                             inputMode="numeric"
                             mode="small"
-                            placeholder="Слагаемое"
+                            placeholder={setPlaceholder(id)}
                             onChange={handleChange}
                             value={value}
                             id={id}
