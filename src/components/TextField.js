@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import styles from './TextField.module.scss';
@@ -71,4 +71,4 @@ TextField.propTypes = {
     ]).isRequired,
 };
 
-export default TextField;
+export default memo(TextField);

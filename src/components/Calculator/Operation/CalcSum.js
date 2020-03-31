@@ -21,14 +21,16 @@ const CalcSum = ({ terms, setTerms, stepCalc }) => {
             return 'Слагаемое (обязательное)';
         };
 
+        const handleClick = () => {
+            const lastKey = Object.keys(terms)[Object.keys(terms).length - 1];
+            setTerms({ ...terms, [+lastKey + 1]: '' });
+        };
+
         return (
             <>
                 <Button
                     className={styles.button}
-                    onClick={() => {
-                        const lastKey = Object.keys(terms)[Object.keys(terms).length - 1];
-                        setTerms({ ...terms, [+lastKey + 1]: '' });
-                    }}
+                    onClick={handleClick}
                 >
                     Добавить слагаемое
                 </Button>
