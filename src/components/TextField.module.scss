@@ -31,8 +31,9 @@
         cursor: not-allowed;
     }
 
-    .text_field--small & {
-        padding: 18px 15px;
+    .text_field--fixed-h & {
+        height: 50px;
+        padding: 0 15px;
         max-width: 400px;
     }
 }

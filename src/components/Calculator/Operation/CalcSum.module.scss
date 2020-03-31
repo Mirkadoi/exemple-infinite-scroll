@@ -6,9 +6,3 @@
 .button {
     margin-bottom: 20px;
 }
-
-.field {
-    & + & {
-        margin-top: 10px;
-    }
-}
